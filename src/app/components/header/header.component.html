@@ -1,0 +1,27 @@
+<div class="header-container">
+  <div class="header">
+    <div class="header-left">
+      <div class="header-brand">
+        Book Gallery
+      </div>
+      <div class="nav-items">
+        <div class="nav-item selected">Books</div>
+        <div class="nav-item">Recommendation</div>
+        <div class="nav-item">Explore</div>
+        <div class="nav-item">Search</div>
+      </div>
+    </div>
+    <div class="header-right">
+      <div *ngIf="!loggedIn">
+        <div class="sign">
+          <div class="sign-in">Sign In</div>
+          <span>/</span>
+          <div class="sign-up">Sign Up</div>
+        </div>
+      </div>
+      <div *ngIf="loggedIn">
+        LoggedIn
+      </div>
+    </div>
+  </div>
+</div>

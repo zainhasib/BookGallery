@@ -1,0 +1,54 @@
+.calculate-container {
+  height: 350px;
+  width: 100%;
+  margin: 100px 0px;
+}
+
+.calculate {
+  position: relative;
+  height: 100%;
+  width: 90%;
+  margin: auto;
+  background: url('/assets/calculate_back.jpg') rgba(0,0,0,0.8);
+  background-size: cover;
+  background-blend-mode: overlay;
+  color: #eee;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+
+.calculate-taste {
+  width: auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.title {
+  font-size: 1.4em;
+  margin: 12px 0px;
+}
+
+.take-test {
+  width: auto;
+  padding: 12px 10px;
+  background: orange;
+}
+
+.user {
+  position: absolute;
+  top: 20px;
+  left: 20px;
+}
+
+.user img {
+  height: 40px;
+  width: 40px;
+  padding: 4px;
+  border-radius: 50%;
+  border: 3px solid #ddd;
+}
