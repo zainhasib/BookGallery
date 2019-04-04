@@ -1,0 +1,92 @@
+* {
+  font-family: 'Quicksand', sans-serif;
+}
+
+.sl-container {
+  min-height: 300px;
+  height: auto;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.sl-loading {
+  min-height: 300px;
+  height: auto;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.sl-wrapper {
+  width: 80%;
+  margin: auto;
+  display: flex;
+  justify-content: center;
+}
+
+.sl-pages {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 20px;
+}
+
+.sl-pages-wrapper {
+  width: auto;
+  display: flex;
+  flex-direction: row;
+}
+
+.sl-pages-item {
+  background: rgb(17, 17, 17);
+  border: 2px solid rgb(255, 255, 255);
+  height: 30px;
+  width: 30px;
+  color: #fff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  font-size: 0.7em;
+}
+
+.sl-pages-item.selected {
+  background: rgb(241, 0, 0);
+}
+
+.sl {
+  width: auto;
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: row;
+  align-items: flex-start;
+}
+
+.sl-item {
+  vertical-align: top;
+  margin: 10px 10px;
+  align-self: flex-start;
+  width: 230px;
+  cursor: default;
+}
+
+.book-image {
+  width: 230px;
+  height: 300px;
+}
+
+.book-title {
+  font-size: 1em;
+  color: #000;
+  line-break: loose;
+  width: auto;
+  font-size: 0.9em;
+}
+
+.book-author {
+  font-size: 0.78em;
+  color: rgb(110, 110, 110);
+}

@@ -1,5 +1,8 @@
 <app-header
   [loggedIn]="loggedIn"
-  [isMobile]="isMobile">
+  [isMobile]="isMobile"
+  (signInClicked)="signInBox($event)"
+  (signUpClicked)="signUpBox($event)">
 </app-header>
-<app-calculate></app-calculate>
+<router-outlet></router-outlet>
+<app-footer></app-footer>

@@ -1,0 +1,122 @@
+* {
+  font-family: 'Quicksand', sans-serif;
+}
+
+.login-container {
+  margin: 100px 0px 40px 0px;
+  height: 100%;
+  width: 100%;
+}
+
+.login {
+  background: url('/assets/login.jpg') rgba(22, 22, 22, 0.74);
+  background-blend-mode: overlay;
+  background-size: cover;
+  min-width: 400px;
+  width: 50%;
+  margin: auto;
+  height: inherit;
+  color: #ddd;
+  padding: 40px;
+  box-shadow: 1px 1px 4px #444;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.form {
+  height: 100%;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.form-item {
+  position: relative;
+  padding: 15px;
+  box-sizing: border-box;
+  width: 100%;
+  margin-top: 10px;
+}
+
+.form-item label.label {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  left: 25px;
+  color: #333;
+  transition-duration: 1s;
+  pointer-events: none;
+}
+
+label.focused {
+  position: absolute;
+  transform: translateY(0%);
+  top: -8px;
+  left: 15px;
+  color : #fff;
+  transition-duration: 0.3s;
+  font-size: 0.9em;
+}
+
+.form-item input {
+  padding: 7px 10px;
+  box-sizing: border-box;
+  width: 100%;
+  font-family: 'Rubik', sans-serif;
+}
+
+.form-button {
+  margin: 10px 0px;
+}
+
+.form-button button {
+  width: 300px;
+  margin: auto;
+  padding: 12px 10px;
+  background: red;
+  border: none;
+  color: #fff;
+}
+
+.login-title {
+  font-size: 1.4em;
+  font-family: 'Rubik', sans-serif;
+}
+
+.form-item.good input {
+  color: green;
+}
+
+.form-item.bad input {
+  color: red;
+}
+
+.form-loading {
+  position: fixed;
+  z-index: 250;
+  top: 0;
+  left: 0;
+  height: 100vh;
+  width: 100vw;
+  background: rgba(0,0,0,0.5);
+}
+
+@media only screen and (max-width: 685px) {
+  .login-container {
+    overflow: hidden;
+  }
+
+  .login {
+    min-width: 200px;
+    width: 70%;
+    margin: auto;
+  }
+
+  .form-button button {
+    width: 230px;
+  }
+}

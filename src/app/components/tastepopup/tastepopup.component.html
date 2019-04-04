@@ -1,0 +1,23 @@
+<div class="popup-container" (click)="clickedOutside($event)">
+  <div class="popup-wrapper" #wrapper>
+    <div *ngIf="isLoading; else body">
+      <app-loading></app-loading>
+    </div>
+    <ng-template #body>
+      <div class="content" #content>
+          <div class="ques">
+              Q{{ i+1 }}. {{ questions[i].question }}
+          </div>
+          <div class="options">
+            <div class="option" (click)="selectOption($event)" id="1" [ngClass]="{'selected': selectedOption===1}">{{ questions[i].option1 }}</div>
+            <div class="option" (click)="selectOption($event)" id="2" [ngClass]="{'selected': selectedOption===2}">{{ questions[i].option2 }}</div>
+            <div class="option" (click)="selectOption($event)" id="3" [ngClass]="{'selected': selectedOption===3}">{{ questions[i].option3 }}</div>
+            <div class="option" (click)="selectOption($event)" id="4" [ngClass]="{'selected': selectedOption===4}">{{ questions[i].option4 }}</div>
+          </div>
+          <div class="decision">
+            <div class="item next" id="next" (click)="clickedNext($event)">Next</div>
+          </div>
+        </div>
+    </ng-template>
+  </div>
+</div>

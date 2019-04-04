@@ -1,0 +1,20 @@
+<div class="search-container">
+  <div class="search-wrapper">
+    <input type="text" (keyup)="onKey($event)" placeholder="Type the Book Title.." (keydown)="onKeyDown($event)" #input />
+    <button (click)="search($event)"  >Search</button>
+  </div>
+  <div class="warning hidden" [ngClass]="{'show': inputWarning}">Enter any query!</div>
+</div>
+<div *ngIf="!searchClicked; else body">
+  <div class="empty">
+    <div class="msg">
+      Type your query in the SearchBox Above
+    </div>
+  </div>
+</div>
+<ng-template #body>
+  <div #rec *ngIf="searchSignal">
+    <app-searchlist 
+    [q]="query"></app-searchlist>
+  </div>
+</ng-template>

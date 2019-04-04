@@ -7,9 +7,18 @@
       <div class="title">
         Book Recommendations based on your likings!
       </div>
-      <div class="take-test">
+      <div class="take-test" (click)="calcTaste($event)">
         Calculate Taste
       </div>
     </div>
   </div>
+  <div class="popup-container" *ngIf="showPopup">
+    <app-tastepopup
+    (hidePopup)="handleHidePopup($event)"
+    (tasteCalculated)="handleTaste($event)"></app-tastepopup>
+  </div>
 </div>
+<app-toastmessage
+*ngIf="showToast"
+[message]="toast.message"
+[type]="toast.type"></app-toastmessage>

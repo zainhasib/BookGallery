@@ -1,3 +1,21 @@
-<p>
-  horizontalscroller works!
-</p>
+<div class="hs-container">
+    <div class="hs-title-wrapper">
+      <div class="hs-title">{{ title }}</div>
+    </div>
+    <div class="hs-wrapper" #wrapper>
+        <div class="arrow" id="arrow-left" [ngClass]="{'hide-arrow': !leftPos}" (click)="handleLeft($event)">
+            <i class="fas fa-arrow-circle-left fa-lg"></i>
+        </div>
+        <div class="hs" #content>
+          <div class="hs-item" *ngFor="let book of books" id="{{ book.isbn }}" routerLink="/book/{{ book.id }}">
+            <img class="book-image" src="{{book.image_url}}" />
+            <div class="book-title">{{ book.title }}</div>
+            <div class="book-author">{{ book.authors }}</div>
+          </div>
+        </div>
+        <div class="arrow" id="arrow-right" [ngClass]="{'hide-arrow': leftPos}" (click)="handleRight($event)">
+            <i class="fas fa-arrow-circle-right fa-lg"></i>
+        </div>
+      </div>
+  </div>
+

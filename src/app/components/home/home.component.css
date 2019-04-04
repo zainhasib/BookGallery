@@ -1,0 +1,12 @@
+* {
+  font-family: 'Quicksand', sans-serif;
+}
+
+.loading {
+  min-height: 300px;
+  height: auto;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align: center;
+}

@@ -1,0 +1,31 @@
+<div class="bl-loading" *ngIf="isLoading; else body">
+  <app-loading></app-loading>
+</div>
+<ng-template #body>
+  <div class="bl-container" #wrapper>
+      <div class="bl-wrapper">
+        <div class="bl">
+          <div class="bl-item" *ngFor="let book of books" routerLink="/book/{{ book.id }}">
+            <img class="book-image" src="{{ book.image_url }}" />
+            <div class="book-title">{{ book.title }}</div>
+            <div class="book-author">{{ book.authors }}</div>
+          </div>
+        </div>
+      </div>
+      <div class="bl-pages">
+        <div class="bl-pages-wrapper">
+          <div *ngIf="page!==1">
+              <div class="bl-pages-item page-back" (click)="handlePrev($event)">Prev</div>
+          </div>
+          <div class="bl-pages-item page" *ngFor="let i of pageBefore" (click)="handlePageChange($event)" [ngClass]="{'selected': i === page}">{{i}}</div>
+          <div class="bl-pages-item page">...</div>
+          <div class="bl-pages-item page" *ngFor="let i of pageMiddle" (click)="handlePageChange($event)" [ngClass]="{'selected': i === page}">{{i}}</div>
+          <div class="bl-pages-item page">...</div>
+          <div class="bl-pages-item page" *ngFor="let i of pageAfter" (click)="handlePageChange($event)" [ngClass]="{'selected': i === page}">{{i}}</div>
+          <div *ngIf="page!==totalPages">
+              <div class="bl-pages-item page-next" (click)="handleNext($event)">Next</div>
+          </div>
+        </div>
+      </div>
+    </div>
+</ng-template>

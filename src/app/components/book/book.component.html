@@ -1,0 +1,26 @@
+<div class="loading" *ngIf="isLoading; else body">
+  <app-loading></app-loading>
+</div>
+<ng-template #body>
+  <div class="book-container">
+    <div class="book-wrapper">
+        <img class="book-image" src="{{book.image_url}}" />
+        <div class="book-desc">
+          <div class="book-title">{{ book.title }}</div>
+          <div class="book-author">by {{ book.authors }}</div>
+          <div class="book-item">ISBN : {{ book.isbn }}</div>
+          <div class="book-item">Rating : {{ book.average_rating }} / 5</div>
+          <div class="book-item">Published On : {{ book.original_publication_year }} / 5</div>
+        </div>
+    </div>
+  </div>
+  <div class="loading" *ngIf="recommendLoading; else rec">
+    <app-loading></app-loading>
+  </div>
+  <ng-template #rec>
+    <app-horizontalscroller
+      [title]="recommendTitle"
+      [books]="recommendBooks"
+    ></app-horizontalscroller>
+  </ng-template>
+</ng-template>

@@ -1,3 +1,43 @@
-<p>
-  footer works!
-</p>
+<div class="footer-container">
+  <div class="footer-wrapper">
+    <div class="footer-item">
+      <div class="item-title">About</div>
+      <div class="item-list">
+        <div class="item">FAQ</div>
+        <div class="item">Blog</div>
+        <div class="item">Terms</div>
+        <div class="item">Privacy</div>
+      </div>
+    </div>
+    <div class="footer-item">
+      <div class="item-title">About</div>
+      <div class="item-list">
+        <div class="item">FAQ</div>
+        <div class="item">Blog</div>
+        <div class="item">Terms</div>
+        <div class="item">Privacy</div>
+      </div>
+    </div>
+    <div class="footer-item">
+      <div class="item-title">Profile</div>
+      <div class="item-list">
+        <div *ngIf="!isLoggedIn">
+          <div class="item" routerLink="/login">Sign in</div>
+        </div>
+        <div *ngIf="!isLoggedIn">
+          <div class="item" routerLink="/signup">Sign up</div>
+        </div>
+        <div class="item">Blog</div>
+        <div class="item">Terms</div>
+        <div class="item">Privacy</div>
+      </div>
+    </div>
+  </div>
+  <div class="contact-wrapper">
+    <div class="contact-container">
+      <div class="contact-item">Twitter</div>
+      <div class="contact-item">Facebook</div>
+      <div class="contact-item">Instagram</div>
+    </div>
+  </div>
+</div>

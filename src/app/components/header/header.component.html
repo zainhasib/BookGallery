@@ -1,27 +1,74 @@
-<div class="header-container">
-  <div class="header">
-    <div class="header-left">
-      <div class="header-brand">
-        Book Gallery
-      </div>
-      <div class="nav-items">
-        <div class="nav-item selected">Books</div>
-        <div class="nav-item">Recommendation</div>
-        <div class="nav-item">Explore</div>
-        <div class="nav-item">Search</div>
-      </div>
-    </div>
-    <div class="header-right">
-      <div *ngIf="!loggedIn">
-        <div class="sign">
-          <div class="sign-in">Sign In</div>
-          <span>/</span>
-          <div class="sign-up">Sign Up</div>
+<div class="header-cover">
+  <div class="header-container">
+    <div class="header">
+      <div class="header-left">
+        <div class="header-brand" routerLink="/home">
+          Book Gallery
+        </div>
+        <div class="nav-items">
+          <div class="nav-item" routerLinkActive="selected" routerLink="/home">Books</div>
+          <div class="nav-item" routerLinkActive="selected" routerLink="/recommendation">Recommendation</div>
+          <div class="nav-item" routerLinkActive="selected" routerLink="/explore">Explore</div>
+          <div class="nav-item" routerLinkActive="selected" routerLink="/search">Search</div>
         </div>
       </div>
-      <div *ngIf="loggedIn">
-        LoggedIn
+      <div class="header-right">
+        <div *ngIf="!loggedIn">
+          <div class="sign">
+            <div class="sign-in" (click)="signInClick()" routerLinkActive="sign-select" routerLink="/login">Sign In</div>
+            <span>/</span>
+            <div class="sign-up" (click)="signUpClick()" routerLinkActive="sign-select" routerLink="/signup">Sign Up</div>
+          </div>
+        </div>
+        <div class="sign-in sign-select" *ngIf="loggedIn" (click)="handleDropdown($event)" >
+          <div class="name">Welcome, {{ user.username }}</div>
+          <div class="email">{{ user.email }}</div>
+          <div class="dropdown" [ngClass]="{'hide': !showDropdown}" #dropdown>
+            <div class="dropdown-item" (click)="logOut($event)" >Log Out</div>
+          </div>
+        </div>
       </div>
     </div>
-  </div>
+    <div class="header-mobile">
+      <div class="header-mobile-wrapper">
+        <div class="header-mobile-left">
+          <div class="header-brand" routerLink="/home">
+            Book Gallery
+          </div>
+        </div>
+        <div class="header-mobile-right">
+          <div class="header-menu">
+            <div class="header-menu-icon" (click)="toggleMenu($event)">
+              <span class="ham-line"></span>
+              <span class="ham-line"></span>
+              <span class="ham-line"></span>
+            </div>
+            <div class="header-menu-wrapper" [ngClass]="{'hide': hideMenu}">
+              <div class="menu-header">
+                <div *ngIf="!loggedIn">
+                  <div class="sign mobile-item">
+                    <div class="sign-in" (click)="signInClick()" routerLinkActive="mobile-sign-select" routerLink="/login" (click)="toggleMenu($event)">Sign In</div>
+                    <span>/</span>
+                    <div class="sign-up" (click)="signUpClick()" routerLinkActive="mobile-sign-select" routerLink="/signup" (click)="toggleMenu($event)">Sign Up</div>
+                  </div>
+                </div>
+                <div class="sign-in mobile-sign-select mobile-item item-header" *ngIf="loggedIn">
+                  <div class="name">{{ user.username }}</div>
+                  <div class="email">{{ user.email }}</div>
+                </div>
+              </div>
+              <div class="menu-items">
+                  <div class="mobile-item" routerLinkActive="mobile-selected" routerLink="/home" (click)="toggleMenu($event)">Books</div>
+                  <div class="mobile-item" routerLinkActive="mobile-selected" routerLink="/recommendation" (click)="toggleMenu($event)">Recommendation</div>
+                  <div class="mobile-item" routerLinkActive="mobile-selected" routerLink="/explore" (click)="toggleMenu($event)">Explore</div>
+                  <div class="mobile-item" routerLinkActive="mobile-selected" routerLink="/search" (click)="toggleMenu($event)">Search</div>
+                  <div class="mobile-item" *ngIf="loggedIn" (click)="logOut($event);toggleMenu($event)">Log Out</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>  
+  <div class="header-margin"></div>
 </div>

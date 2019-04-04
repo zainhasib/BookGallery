@@ -1,0 +1,40 @@
+<div class="login-container">
+    <div class="login">
+      <div class="login-title">Sign Up</div>
+      <form class="form" novalidate [formGroup]="myForm" (ngSubmit)="onSubmit()" >
+        <div class="form-item">
+          <label  [ngClass]="{'focused': nameClicked, 'label': !nameClicked}">Name</label>
+          <input type="text" (focus)="nmClicked($event)" formControlName="name" required />
+        </div>
+        <div class="form-item">
+          <label [ngClass]="{'focused': usernameClicked, 'label': !usernameClicked}">Username</label>
+          <input type="text" [style.textTransform]="'lowercase'" (focus)="usrClicked($event)" formControlName="username" required />
+        </div>
+        <div class="form-item" [ngClass]="{
+            'bad': email.invalid && email.dirty,
+            'good': email.valid && email.dirty
+          }">
+          <label [ngClass]="{'focused': emailClicked, 'label': !emailClicked}">Email</label>
+          <input type="email" (focus)="mailClicked($event)" formControlName="email" required />
+        </div>
+        <div class="form-item" [ngClass]="{'bad': password.invalid && (password.dirty || password.touched),
+          'good': password.valid && (password.dirty || password.touched)}">
+          <label [ngClass]="{'focused': passClicked, 'label': !passClicked}">Password</label>
+          <input type="text" (focus)="passwClicked($event)" formControlName="password" required />
+        </div>
+        <div class="form-button">
+          <button type="submit">SIGN UP</button>
+        </div>
+        <div [style.paddingTop]="'10px'">Already have an Account? <a [routerLink]="['/login']" [style.color]="'#fff'">Log In</a></div>
+        <div class="form-loading" *ngIf="submitClicked">
+          <app-loading></app-loading>
+        </div>
+      </form>
+    </div>
+    <div 
+    *ngIf="showToast">
+      <app-toastmessage
+      [message]="toast.message"
+      [type]="toast.type"></app-toastmessage>
+    </div>
+</div>

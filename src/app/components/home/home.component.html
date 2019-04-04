@@ -1,0 +1,25 @@
+<div *ngIf="!tasteCalculated">
+  <app-calculate (tasteCalculated)="handleTaste($event)"></app-calculate>
+</div>
+<div *ngIf="loggedIn && tasteCalculated">
+  <div class="loading" *ngIf="recommendLoading; else rec">
+    <app-loading></app-loading>
+  </div>
+  <ng-template #rec>
+    <app-horizontalscroller
+      [title]="recommended"
+      [books]="recommendBooks">
+    </app-horizontalscroller>
+  </ng-template>
+
+</div>
+<div class="loading" *ngIf="trendingLoading; else tr">
+  <app-loading></app-loading>
+</div>
+<ng-template #tr>
+  <app-horizontalscroller
+    [title]="trending"
+    [books]="trendingBooks">
+  </app-horizontalscroller>
+</ng-template>
+
